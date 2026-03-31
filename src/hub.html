@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<link rel="icon" href="/images/favicon.ico/" type="image/x-icon">
+
+<style>
+    #goobinput {
+        background-color: green;
+        color: black;
+        border: 10px dotted green;
+        font: bold;
+        font-size: large;
+    }
+
+    #googleshortcut {
+        background-color: rgb(255, 0, 0);
+        color: black;
+        border: 10px dotted rgb(255, 0, 0);
+        font: bold;
+        font-size: large;
+    }
+
+    #textinfo {
+        font-size: small;
+    }
+    
+    #textinfo2 {
+        font-size: small;
+    }
+
+    #cpinfo {
+        font-size: xx-small;
+    }
+</style>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>New Tab</title>~
+<link rel="stylesheet" href="hubstyles.css">
+</head>
+<body>
+<header>
+    <h1>New Tab V0.0.7</h1>
+    <form id="URLForm">
+        <input type="text" id="searchInput" placeholder="enter a valid URL">
+        <button type="submit">enter</button>
+    </form>
+    <form id="googleForm">
+        <input type="text" id="googleInput" placeholder="search google">
+        <button type="submit">search</button>
+    </form>
+    <button onclick="document.location='proxy.html?url=https://googoogoob.github.io'" id="goobinput">goob360</button>
+    <button onclick="document.location='proxy.html?url=https:www.google.com/webhp?igu=1&safe=active&ssui=on'" id="googleshortcut">google</button>
+</header>
+<main>
+    <!-- Main content of the hub page -->
+    <p>Welcome to the system. Use the search box above to enter the URL you want to access through the iframe. It has to be a full url, but without the "https://"</p>
+    <p>ex. "example.com" instead of "https://example.com"</p>
+    <p>click "goob360" to access a game page.</p>
+    <p>currently, google doesn't work, if you type anything and search it'll take you to google.</p>
+    <p>however, I don't believe many websites work.</p>
+    
+</main>
+
+<footer>
+    <button id="redirectButton">info</button>
+    <p id="textinfo">this site is in development.</p>
+    <p id="textinfo2">most APIs dont allow iframe-in-iframe</p>
+    <p id="cpinfo">credit to "CP" for making goob360</p>
+</footer>
+
+<script>
+    // Handle form submission
+    document.getElementById("URLForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        var url = document.getElementById("searchInput").value;
+        if (url.trim() !== "") {
+            window.location.href = "proxy.html?url=https://" + encodeURIComponent(url);
+        }
+    });
+
+    document.getElementById("googleForm").addEventListener("submit", function(event) {
+        event.preventDefault(); // Prevent default form submission
+        var url = document.getElementById("googleInput").value;
+        if (url.trim() !== "") {
+            window.location.href = "proxy.html?url=https://www.google.com/webhp?igu=1&safe=active&ssui=on" + encodeURIComponent(url);
+        }
+    });
+
+    //handle goob360 submission
+    document.getElementById("goobinput").addEventListener("submit", function(event) {
+        event.preventDefault(); // prevent default submission
+        var url = "https://googoogoob.github.io";
+        window.location.href = "proxy.html?url=" + encodeURIComponent(url);
+    });
+</script>
+
+
+<script>
+    document.getElementById("redirectButton").addEventListener("click", function() {
+        window.location.href = "info.html"; // Replace "info.html" with the URL of the HTML file you want to redirect to
+    });
+</script>
+</body>
+</html>

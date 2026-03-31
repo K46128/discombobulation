@@ -1,0 +1,19 @@
+{
+    "name": "k4-web",
+    "version": "0.0.7",
+    "description": "proxy-test",
+    "type": "module",
+    "main": "app.js",
+    "scripts": {
+        "start": "node app.js"
+    },
+    "keywords": [
+        "test"
+    ],
+    "dependencies": {
+        "cookie-parser": "^1.4.6",
+        "express": "^4.22.1",
+        "path": "^0.12.7",
+        "selenium-webdriver": "^4.18.1"
+    }
+}
